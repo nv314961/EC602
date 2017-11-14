@@ -1,5 +1,4 @@
 # Copyright 2017 Nick VanDeusen nv314961@bu.edu
-# Copyright 2017 Michael Graziano mjgrazia@bu.edu
 
 from numpy import zeros, exp, array, pi #, fft, set_printoptions, allclose
 

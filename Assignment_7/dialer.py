@@ -1,5 +1,7 @@
+# Copyright 2017 Nick VanDeusen nv314961@bu.edu
+
 import scipy.io.wavfile as wavfile
-from numpy import pi, linspace, sin, int16, append, empty, array, concatenate
+from numpy import pi, linspace, sin, array, concatenate, int16
 from numpy.fft import fftshift, fft
 freq = [697.0, 770.0, 852.0, 941.0, 1209.0, 1336.0, 1477.0, 1633.0]
 
@@ -21,7 +23,7 @@ def dialer(file_name, frame_rate, phone, tone_time):
 	
 	A = 10000 # amplitude
 	T = frame_rate * tone_time # T = N*tau
-	x = linspace(0, tone_time, T)
+	x = linspace(0, tone_time, int(T), endpoint=False)
 
 	dialtone = array([])
 	for i in range(len(phone)):
@@ -34,8 +36,8 @@ def dialer(file_name, frame_rate, phone, tone_time):
 	wavfile.write(file_name, frame_rate, dialtone.astype(int16))
 
 def main():
-	teststr = "8602017433"
-	dialer("dial.wav", 48000, "8602017433", 0.5)
+	teststr = "8603871913"
+	dialer("dial.wav", 48000, teststr, 0.3)
 	
 if __name__ == '__main__':
     main()

@@ -43,7 +43,7 @@ music,frame_rate,nframes,nchannels = read_wave(fname,debug=True)
 if nchannels > 1:
     music = music.sum(axis=1)
 
-pyplot.plot(music[:44100])
+pyplot.plot(music[:44100*10])
 pyplot.title('First second of bach music')
 print('Close plot in Figure 1 to continue...')
 pyplot.show()
